@@ -1,8 +1,8 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import StackHeader from '../Component/StackHeader';
-import Account from '../../Screens/AccountStack';
+import StackHeader from '../../components/StackHeader';
+import Logbook from '../../../screens/logbookStack';
 
-function AccountStack() {
+function LogbookNavigator() {
 const Stack = createNativeStackNavigator();
   return (
     <Stack.Navigator
@@ -14,9 +14,9 @@ const Stack = createNativeStackNavigator();
           headerShown: true,      
       }}
     >
-      <Stack.Screen name="Akun" component={Account} />
+      <Stack.Screen name="Logbook" component={Logbook} />
     </Stack.Navigator>
   );
 }
 
-export default AccountStack;
+export default LogbookNavigator;

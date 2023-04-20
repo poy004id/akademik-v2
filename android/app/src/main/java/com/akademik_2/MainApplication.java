@@ -1,4 +1,4 @@
-package com.akademik_2;
+package com.rsugm.akademik2;
 
 import android.app.Application;
 import com.facebook.react.PackageList;

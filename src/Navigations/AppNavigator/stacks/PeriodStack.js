@@ -1,8 +1,8 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import StackHeader from '../Component/StackHeader';
-import Logbook from '../../Screens/Logbook';
+import StackHeader from '../../components/StackHeader';
+import Period from '../../../screens/periodStack';
 
-function LogbookNavigator() {
+function PeriodStack() {
 const Stack = createNativeStackNavigator();
   return (
     <Stack.Navigator
@@ -14,9 +14,9 @@ const Stack = createNativeStackNavigator();
           headerShown: true,      
       }}
     >
-      <Stack.Screen name="Logbook" component={Logbook} />
+      <Stack.Screen name="Periode" component={Period} />
     </Stack.Navigator>
   );
 }
 
-export default LogbookNavigator;
+export default PeriodStack;

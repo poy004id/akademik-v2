@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "47572636824",
+    "project_id": "akademik-v2",
+    "storage_bucket": "akademik-v2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:47572636824:android:6def59c68487ca564ceced",
+        "android_client_info": {
+          "package_name": "com.rsugm.akademik2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "47572636824-hfk9ptise6d0oqrmfgcsl64b9bftqkth.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rsugm.akademik2",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "47572636824-hpgr9qhq9m4eouoqm0rf1t5gndmbd8vd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdirZSWsjKrNmRjlFjyiyNMQbe437sCN0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "47572636824-hpgr9qhq9m4eouoqm0rf1t5gndmbd8vd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

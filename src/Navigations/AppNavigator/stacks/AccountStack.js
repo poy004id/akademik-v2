@@ -1,8 +1,8 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import StackHeader from '../Component/StackHeader';
-import Period from '../../Screens/PeriodStack';
+import StackHeader from '../../components/StackHeader';
+import Account from '../../../screens/accountStack';
 
-function PeriodStack() {
+function AccountStack() {
 const Stack = createNativeStackNavigator();
   return (
     <Stack.Navigator
@@ -14,9 +14,9 @@ const Stack = createNativeStackNavigator();
           headerShown: true,      
       }}
     >
-      <Stack.Screen name="Periode" component={Period} />
+      <Stack.Screen name="Akun" component={Account} />
     </Stack.Navigator>
   );
 }
 
-export default PeriodStack;
+export default AccountStack;

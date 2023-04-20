@@ -1,8 +1,7 @@
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import AppNav from './src/Navigations/AppNav';
-import AppNavigator from './src/Navigations/AppNavigator';
-import AuthNavigator from './src/Navigations/AuthNavigator';
+import AppNavigator from './src/navigations/appNavigator';
+import AuthNavigator from './src/navigations/authNavigator';
 
 export default function App() {
   const [isAuthenticated, setIsAuthenticated] = React.useState(false);

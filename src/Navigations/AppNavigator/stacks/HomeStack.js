@@ -1,13 +1,13 @@
 // import { createStackNavigator } from '@react-navigation/stack';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import StackHeader from '../Component/StackHeader';
+import StackHeader from '../../components/StackHeader';
 import {View} from 'react-native';
 
-import Home, {HomeScreenOptions} from '../../Screens/HomeStack';
+import Home, {HomeScreenOptions} from '../../../screens/homeStack';
 // import Home, { HomeScreenOptions } from '../../Screens/HomeStack/Home';
 
-import Test, {TestScreenOptions} from '../../Screens/HomeStack/Test';
-import Test2 from '../../Screens/HomeStack/Test2';
+import Test, {TestScreenOptions} from '../../../screens/homeStack/Test';
+import Test2 from '../../../screens/homeStack/Test2';
 console.log('HomeStack', HomeScreenOptions)
 function HomeStack() {
 const Stack = createNativeStackNavigator();

@@ -2,7 +2,6 @@ import { StyleSheet, Text, View } from 'react-native'
 import React, { useEffect } from 'react'
 import { useTheme, IconButton, Button } from 'react-native-paper'
 
-
 export const HomeScreenOptions = ({navigation})=> ({
   headerRight: () => (
     <IconButton

@@ -1,4 +1,4 @@
-package com.akademik_2;
+package com.rsugm.akademik2;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;

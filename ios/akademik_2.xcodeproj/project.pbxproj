@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* akademik_2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* akademik_2Tests.m */; };
-		0C80B921A6F3F58F76C31292 /* libPods-akademik_2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-akademik_2.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -28,8 +27,10 @@
 		1A1E875C29EE3D4C009A7AFA /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A1E874C29EE3D4C009A7AFA /* EvilIcons.ttf */; };
 		1A1E875D29EE3D4C009A7AFA /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A1E874D29EE3D4C009A7AFA /* SimpleLineIcons.ttf */; };
 		1A1E875E29EE3D4C009A7AFA /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A1E874E29EE3D4C009A7AFA /* MaterialIcons.ttf */; };
-		7699B88040F8A987B510C191 /* libPods-akademik_2-akademik_2Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-akademik_2-akademik_2Tests.a */; };
+		1A20D6C929F0F7FD003E181F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1A20D6C829F0F7FD003E181F /* GoogleService-Info.plist */; };
+		7C6523A6627E7E15A31B0403 /* Pods_akademik_2_akademik_2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EFE8A163CF5E3FDAFA640DC /* Pods_akademik_2_akademik_2Tests.framework */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		9B448AB7B8674834816A26ED /* Pods_akademik_2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BED21163C7A62CE8D39A4CB /* Pods_akademik_2.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,13 +47,13 @@
 		00E356EE1AD99517003FC87E /* akademik_2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = akademik_2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* akademik_2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = akademik_2Tests.m; sourceTree = "<group>"; };
+		0BED21163C7A62CE8D39A4CB /* Pods_akademik_2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_akademik_2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07F961A680F5B00A75B9A /* akademik_2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = akademik_2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = akademik_2/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = akademik_2/AppDelegate.mm; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = akademik_2/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = akademik_2/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = akademik_2/main.m; sourceTree = "<group>"; };
-		19F6CBCC0A4E27FBF8BF4A61 /* libPods-akademik_2-akademik_2Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-akademik_2-akademik_2Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A1E873F29EE3D4C009A7AFA /* Fontisto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fontisto.ttf; sourceTree = "<group>"; };
 		1A1E874029EE3D4C009A7AFA /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Octicons.ttf; sourceTree = "<group>"; };
 		1A1E874129EE3D4C009A7AFA /* Feather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Feather.ttf; sourceTree = "<group>"; };
@@ -69,10 +70,11 @@
 		1A1E874C29EE3D4C009A7AFA /* EvilIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EvilIcons.ttf; sourceTree = "<group>"; };
 		1A1E874D29EE3D4C009A7AFA /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimpleLineIcons.ttf; sourceTree = "<group>"; };
 		1A1E874E29EE3D4C009A7AFA /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialIcons.ttf; sourceTree = "<group>"; };
+		1A20D6C829F0F7FD003E181F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2EFE8A163CF5E3FDAFA640DC /* Pods_akademik_2_akademik_2Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_akademik_2_akademik_2Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4392A12AC88292D35C810B /* Pods-akademik_2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-akademik_2.debug.xcconfig"; path = "Target Support Files/Pods-akademik_2/Pods-akademik_2.debug.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-akademik_2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-akademik_2.release.xcconfig"; path = "Target Support Files/Pods-akademik_2/Pods-akademik_2.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-akademik_2-akademik_2Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-akademik_2-akademik_2Tests.debug.xcconfig"; path = "Target Support Files/Pods-akademik_2-akademik_2Tests/Pods-akademik_2-akademik_2Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		5DCACB8F33CDC322A6C60F78 /* libPods-akademik_2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-akademik_2.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = akademik_2/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-akademik_2-akademik_2Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-akademik_2-akademik_2Tests.release.xcconfig"; path = "Target Support Files/Pods-akademik_2-akademik_2Tests/Pods-akademik_2-akademik_2Tests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -83,7 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7699B88040F8A987B510C191 /* libPods-akademik_2-akademik_2Tests.a in Frameworks */,
+				7C6523A6627E7E15A31B0403 /* Pods_akademik_2_akademik_2Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,7 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C80B921A6F3F58F76C31292 /* libPods-akademik_2.a in Frameworks */,
+				9B448AB7B8674834816A26ED /* Pods_akademik_2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,8 +157,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				5DCACB8F33CDC322A6C60F78 /* libPods-akademik_2.a */,
-				19F6CBCC0A4E27FBF8BF4A61 /* libPods-akademik_2-akademik_2Tests.a */,
+				0BED21163C7A62CE8D39A4CB /* Pods_akademik_2.framework */,
+				2EFE8A163CF5E3FDAFA640DC /* Pods_akademik_2_akademik_2Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -171,6 +173,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				1A20D6C829F0F7FD003E181F /* GoogleService-Info.plist */,
 				1A1E873E29EE3D4C009A7AFA /* Fonts */,
 				13B07FAE1A68108700A75B9A /* akademik_2 */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -309,6 +312,7 @@
 				1A1E875B29EE3D4C009A7AFA /* Zocial.ttf in Resources */,
 				1A1E875D29EE3D4C009A7AFA /* SimpleLineIcons.ttf in Resources */,
 				1A1E875129EE3D4C009A7AFA /* Feather.ttf in Resources */,
+				1A20D6C929F0F7FD003E181F /* GoogleService-Info.plist in Resources */,
 				1A1E875029EE3D4C009A7AFA /* Octicons.ttf in Resources */,
 				1A1E875329EE3D4C009A7AFA /* FontAwesome5_Brands.ttf in Resources */,
 				1A1E875529EE3D4C009A7AFA /* AntDesign.ttf in Resources */,
@@ -558,8 +562,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2CNHU55BML;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = akademik_2/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Akademik;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -570,7 +577,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rsugm.akademik2;
 				PRODUCT_NAME = akademik_2;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -585,7 +592,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2CNHU55BML;
 				INFOPLIST_FILE = akademik_2/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Akademik;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -596,7 +606,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rsugm.akademik2;
 				PRODUCT_NAME = akademik_2;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

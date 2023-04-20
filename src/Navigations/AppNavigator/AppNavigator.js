@@ -4,11 +4,11 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { CommonActions } from '@react-navigation/native';
 
 
-import HomeStack from './HomeStack';
-import LogbookStack from './LogbookStack';
-import AccountStack from './AccountStack';
-import AttendancetStack from './AttendanceStack';
-import PeriodStack from './PeriodStack';
+import HomeStack from './stacks/HomeStack';
+import LogbookStack from './stacks/LogbookStack';
+import AccountStack from './stacks/AccountStack';
+import AttendancetStack from './stacks/AttendanceStack';
+import PeriodStack from './stacks/PeriodStack';
 
 function AppNavigator() {
   const Tab = createBottomTabNavigator();

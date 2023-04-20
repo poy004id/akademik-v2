@@ -1,4 +1,5 @@
 apply plugin: "com.android.application"
+apply plugin: 'com.google.gms.google-services' // <- Add this line firebase config
 apply plugin: "com.facebook.react"
 
 import com.android.build.OutputFile
@@ -93,9 +94,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.akademik_2"
+    namespace "com.rsugm.akademik2"
     defaultConfig {
-        applicationId "com.akademik_2"
+        applicationId "com.rsugm.akademik2"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
