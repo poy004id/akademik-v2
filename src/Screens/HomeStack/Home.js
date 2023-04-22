@@ -25,6 +25,7 @@ const Home = ({navigation}) => {
       <Text>Home</Text>
       <Button onPress={()=>navigation.navigate('Test')}>Go to Test</Button>
       <Button onPress={()=>navigation.navigate('Test2')}>Go to Test2</Button>
+      <Button onPress={()=>navigation.navigate('Test3')}>Go to Test3</Button>
     </View>
   )
 }
