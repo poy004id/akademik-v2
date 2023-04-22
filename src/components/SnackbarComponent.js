@@ -1,87 +1,50 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import { Snackbar } from 'react-native-paper';
+import { StyleSheet, Text, View } from 'react-native'
+import React, { useEffect } from 'react'
+import { Snackbar, useTheme } from 'react-native-paper';
+import useSnackbar from '../redux/features/snackbar/useSnackbar';
+import { shallowEqual, useSelector } from 'react-redux';
 
-const SnackbarComponent = ({ visible, message, onDismiss }) => {
-  console.log('SnackbarComponent visible: ', visible);
+const SnackbarComponent = () => {
+    const { colors } = useTheme();
+    const snackbarQueue = useSelector(state => state.snackbarQueue, shallowEqual) // array of messages
+    const { showSnackbar, hideSnackbar } = useSnackbar();
+    const [snackbarVisible, setSnackbarVisible] = React.useState(false);
+    const [snackbarMessage, setSnackbarMessage] = React.useState(null);
+
+    useEffect(() => {
+        console.log('snackbarQueue', snackbarQueue)
+        if (snackbarQueue.length > 0) {
+            setSnackbarVisible(true)
+            setSnackbarMessage(snackbarQueue[0])
+        }
+        else {
+            setSnackbarVisible(false)
+            setSnackbarMessage(null)
+        }
+    }, [snackbarQueue])
+
   return (
-    <Snackbar
-      visible={visible}
-      onDismiss={onDismiss}
-      duration={Snackbar.DURATION_SHORT}
-      style={{
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        right: 0,
-        zIndex: 1
-      }}
-      action={{
-        label: 'OK',
-        onPress: onDismiss
-      }}
-    >
-      {message}
-    </Snackbar>
-  );
-};
-let showSnackbar;
-let SnackbarComponentMemo;
-const useSnackbar = () => {
-  console.log('useSnackbar');
-  const [snackbarVisible, setSnackbarVisible] = useState(false);
-  const [snackbarMessageQueue, setSnackbarMessageQueue] = useState([]);
-  const [snackbarMessage, setSnackbarMessage] = useState('');
+    <View>
+<Snackbar
+  visible={snackbarVisible}
+  duration={4000}
+  onDismiss={hideSnackbar}
+  style={{ position: 'absolute', bottom: 10, left: 0, right: 0 }}
+  action={{
+    label: 'OK',
+    onPress: () => { console.log('snackbar pressed') },
+    // onPress: ()=> hideSnackbar() ,
+  }}
+>
+<Text style={{color:colors.onPrimary}}>
+  {snackbarMessage}
+  </Text>
+</Snackbar>
+    </View>
+  )
 
-  const displaySnackbar = (message) => {
-    console.log('displaySnackbar');
-    setSnackbarMessageQueue(queue => [...queue, message]);
-    if (!snackbarVisible) {
-      setSnackbarVisible(true);
-    }
-  };
+}
 
-  const handleSnackbarDismiss = () => {
-    setSnackbarMessageQueue(queue => queue.slice(1));
-    if (snackbarMessageQueue.length > 1) {
-      setSnackbarMessage(snackbarMessageQueue[1]);
-    } else {
-      setSnackbarVisible(false);
-    }
-  };
+export default SnackbarComponent
 
-  useEffect(() => {
-    if (snackbarMessageQueue.length > 0) {
-      setSnackbarMessage(snackbarMessageQueue[0]);
-      setSnackbarVisible(true);
-    }
-  }, [snackbarMessageQueue]);
-
-
-  showSnackbar = React.useCallback(displaySnackbar, [snackbarMessageQueue, snackbarMessage]);
-  // showSnackbar = displaySnackbar;
-  SnackbarComponentMemo = React.useMemo(() => (
-    <SnackbarComponent
-      visible={snackbarVisible}
-      message={snackbarMessage}
-      onDismiss={handleSnackbarDismiss}
-    />
-  ), [snackbarVisible, snackbarMessage, snackbarMessageQueue ]);
-
-  const memoizedSnackbarComponent = useMemo(
-    () => (
-      <SnackbarComponent
-        visible={snackbarVisible}
-        message={snackbarMessage}
-        onDismiss={handleSnackbarDismiss}
-      />
-    ),
-    [snackbarVisible, snackbarMessage]
-  );
-  return {
-    showSnackbar: displaySnackbar,
-    SnackbarComponent: memoizedSnackbarComponent
-
-  };
-};
-export {showSnackbar, useSnackbar, SnackbarComponentMemo};
-
+const styles = StyleSheet.create({})

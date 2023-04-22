@@ -1,11 +1,8 @@
 import auth, {firebase} from '@react-native-firebase/auth';
 import React from 'react';
 import { View , Text} from 'react-native';
-import { GoogleSignin, GoogleSigninButton } from '@react-native-google-signin/google-signin';
-import { appleAuth, AppleButton } from '@invertase/react-native-apple-authentication';
-// import { handleApi } from '../../reducer/ApiReducer';
-// import {store} from '../../redux';
-// import { getRegistrationData } from '../../screen/Home/useData';
+// import { GoogleSignin, GoogleSigninButton } from '@react-native-google-signin/google-signin';
+// import { appleAuth, AppleButton } from '@invertase/react-native-apple-authentication';
 
 
 
@@ -15,10 +12,10 @@ export const Logout = async () => {
         if (firebase.auth().currentUser) {
             await auth().signOut()
 
-            GoogleSignin.configure({
-                webClientId: '1020420479230-4n1b09us55qb5i0djs71s3f5gf66tnfv.apps.googleusercontent.com',
-            });
-            return await GoogleSignin.signOut();
+            // GoogleSignin.configure({
+            //     webClientId: '1020420479230-4n1b09us55qb5i0djs71s3f5gf66tnfv.apps.googleusercontent.com',
+            // });
+            // return await GoogleSignin.signOut();
           } else {
             console.log("No user currently signed in.");
           }

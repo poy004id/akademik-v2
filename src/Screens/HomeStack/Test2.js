@@ -2,27 +2,17 @@ import { StyleSheet, Text, View } from 'react-native'
 import React, { useEffect } from 'react'
 import { useTheme, FAB, Button } from 'react-native-paper'
 import FullWidthLayout, {showSnackbar} from '../../layouts/FullWidthLayout'
+import useSnackbar from '../../redux/features/snackbar/useSnackbar'
 
 const Test2 = ({navigation}) => {
     const {colors} = useTheme()
-    console.log('Test2')
+    const {showSnackbar} = useSnackbar()
     
   return (
     <FullWidthLayout
       AppFAB={
       
         <>  
-          <View>
-        <FAB
-          style={{
-            position: 'absolute',
-            right: 0,
-            bottom: 0,
-          }}
-          icon="plus"
-          onPress={() => console.log('Pressed')}
-        />
-        </View>
         <View>
           <FAB
           style={{
@@ -34,7 +24,7 @@ const Test2 = ({navigation}) => {
           onPress={() => console.log('Pressed')}
         />
         </View>
-        <View>
+        {/* <View>
                 <FAB
           style={{
             position: 'absolute',
@@ -44,7 +34,7 @@ const Test2 = ({navigation}) => {
           icon="plus"
           onPress={() => console.log('Pressed')}
         />
-        </View>
+        </View> */}
         </>
 
       }

@@ -7,6 +7,7 @@ import Home, {HomeScreenOptions} from '../../../screens/homeStack';
 import Test, {TestScreenOptions} from '../../../screens/homeStack/Test';
 import Test2 from '../../../screens/homeStack/Test2';
 import Test3 from '../../../screens/homeStack/Test3';
+import TestRedux from '../../../screens/homeStack/testRedux';
 
 console.log('HomeStack', HomeScreenOptions)
 function HomeStack() {
@@ -25,6 +26,7 @@ const Stack = createNativeStackNavigator();
       <Stack.Screen name="Test" component={Test} options={TestScreenOptions}/>
       <Stack.Screen name="Test2" component={Test2} />
       <Stack.Screen name="Test3" component={Test3} />
+      <Stack.Screen name="TestRedux" component={TestRedux} />
      
     </Stack.Navigator>
   );

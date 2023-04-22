@@ -2,45 +2,30 @@ import React, {useEffect} from 'react';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
 import { useTheme, Snackbar } from 'react-native-paper';
 
-import AppHeader from './components/AppHeader';
-import AppBody from './components/AppBody';
-import AppAbsoluteBody from './components/AppAbsoluteBody';
-import AppFAB from './components/AppFAB';
-import AppFooter from './components/AppFooter';
+import SnackbarComponent from '../components/SnackbarComponent';
 
-import useSnackbar from '../components/SnackbarComponent';
-
-const BaseLayout = ({ children }) => {
-  console.log('BaseLayout children: ', children);
-  const { colors } = useTheme();
-  const {showSnackbar, SnackbarComponent} = useSnackbar();
+const BaseLayout = ({AppFAB, AppFooter, children }) => {
   const isOffline = true;
-  useEffect(() => {
-    if (isOffline) {
-      showSnackbar('Koneksi Terputus, silahkan coba lagi');
-    }
-  }, [isOffline]);
 
-  // check if children with type AppFAB  exist and count the children of AppFABComponent
-  let appFABCount = 0;
-  
-  React.Children.forEach(children, (child) => {
-    if (child.type === AppFAB) {
-      appFABCount += React.Children.count(child.props.children);
-    }
-  });
-  console.log('appFABCount: ', appFABCount);
-  
-
+  let FABCount = 0;
+  // React.Children.forEach(AppFAB, (child) => {
+  //         FABCount += React.Children.count(child.props.children);
+  // });
   
   return (
     <SafeAreaView style={{flex:1}}>
       <View style={styles.container}>
        {children}
       </View>
-      <View style={{bottom:appFABCount * 70 + 10 }}>
+      <View style={{bottom: FABCount * 70 + 10 }}>
         {SnackbarComponent}
       </View>
+      <View style={{right:16, bottom:16}}>
+        <View style={styles.fab}>
+            {AppFAB}
+        </View>
+      </View>
+
     </SafeAreaView>
   )
 }
@@ -54,6 +39,5 @@ const styles = StyleSheet.create({
   },
 });
 
-export { AppHeader, AppBody, AppAbsoluteBody, AppFAB, AppFooter };
 
 export default BaseLayout;
