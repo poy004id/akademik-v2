@@ -14,7 +14,7 @@ console.log('AuthNavigator')
       headerMode="screen"
       screenOptions={{
          header:({navigation, route, options, back })=>(
-             <StackHeader route={route} options={options} back={back} navigation={navigation}/>
+             <StackHeader route={route} options={options} back={back} navigation={navigation} />
          ),
           headerShown: true,
           headerTitleStyle: {

@@ -54,10 +54,10 @@ const App = () => {
 
     return (
         <NavigationContainer>
-            <StatusBar backgroundColor={colors.primary} barStyle="light-content"/>
+            {/* <StatusBar backgroundColor={colors.primary} barStyle="light-content"/> */}
             {initializing && <SplashScreen isLoading={initializing} />}
             {user?.emailVerified? <AppNavigator/> :
-            <AppNavigator/>}
+            <AuthNavigator/>}
         </NavigationContainer>
     )
 }

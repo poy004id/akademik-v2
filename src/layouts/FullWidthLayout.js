@@ -3,11 +3,10 @@ import { SafeAreaView, StyleSheet, View } from 'react-native';
 import { useTheme } from 'react-native-paper';
 import SnackbarComponent from '../components/SnackbarComponent';
 
-const FullWidthLayout = ({AppFAB, AppFooter,  children }) => {
-
+const FullWidthLayout = ({AppFAB, AppFooter, AppBody,  children }) => {
+  console.log('FullWidthLayout rendered')
   const { colors } = useTheme();
-  const isOffline = true;
-  console.log('FullWidthLayout', )
+  const styles = customStyles(colors);
 
     let FABCount = 0;
     React.Children.forEach(AppFAB, (child) => {
@@ -15,12 +14,13 @@ const FullWidthLayout = ({AppFAB, AppFooter,  children }) => {
     });
   
   return (
+    <View style={{backgroundColor:colors.background, flex:1}}>
     <SafeAreaView style={{flex:1}}>
       <View style={styles.container}>
        {children}
       </View>
       <View style={{bottom:FABCount * 70 }}>
-        {SnackbarComponent()}
+        <SnackbarComponent/>
       </View>
       <View style={{right:16, bottom:16}}>
         <View style={styles.fab}>
@@ -29,13 +29,16 @@ const FullWidthLayout = ({AppFAB, AppFooter,  children }) => {
       </View>
         {AppFooter}
     </SafeAreaView>
+    </View>
   )
 }
 
-const styles = StyleSheet.create({
+const customStyles = (colors) => StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'skyblue',
+    backgroundColor: colors.background,
+    flexGrow: 1,
+    flexShrink: 1,
   },
   fab: {
     position: 'absolute',

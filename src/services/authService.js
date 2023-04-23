@@ -26,22 +26,19 @@ export const Logout = async () => {
     };
 
 
-export const onLogin = async (email, password) => {
+export const onSignin = async (email, password, setIsLoading, setError) => {
     try {
-    //   handleApi('onLogin','API_RESET', null);
-    //   handleApi('onLogin', 'API_LOADING', {path: 'onLogin'});
+        console.log('email auth.onSignin ', email);
+        console.log('password auth.onSignin', password);
       const res = await auth().signInWithEmailAndPassword(email, password);
-    //   await getRegistrationData();
-    //   handleApi('onLogin', 'API_SUCCESS', null);
-      console.log('res', res);
       if (res?.user?.emailVerified === false) {
-        sendVerifyEmail();
+        // sendVerifyEmail();
         return 'unverified';
       }
       return true;
     } catch (error) {
       console.log('error dologiin', error);
-    //   handleApi('onLogin', 'API_ERROR', {errorMessage: error.message, errorCode: error.code});
+
       return false;
     }
   };
@@ -143,8 +140,8 @@ export const onGoogleLogin = async () => {
 
 
 // export const onAppleLogin = async () => {
-    handleApi('API_RESET', null)
-    handleApi('API_LOADING', {path: 'onAppleLogin'})
+    // handleApi('API_RESET', null)
+    // handleApi('API_LOADING', {path: 'onAppleLogin'})
 //   return new Promise((resolve, reject) => {
 //     appleAuth.performRequest({
 //       requestedOperation: appleAuth.Operation.LOGIN,
@@ -155,7 +152,7 @@ export const onGoogleLogin = async () => {
 //         if (identityToken) {
 //           const appleCredential = firebase.auth.AppleAuthProvider.credential(identityToken, nonce);
 //           const userCredential = firebase.auth().signInWithCredential(appleCredential);
-          handleApi('onAppleLogin', 'API_SUCCESS', null)
+        //   handleApi('onAppleLogin', 'API_SUCCESS', null)
 //           resolve(userCredential);
 //         } else {
 //           reject('Something went wrong, try again later');
@@ -163,7 +160,7 @@ export const onGoogleLogin = async () => {
 //       })
 //       .catch((error) => {
 //         //   reject(error);
-          handleApi('onAppleLogin', 'API_ERROR', {errorMessage: error.message, errorCode: error.code})
+        //   handleApi('onAppleLogin', 'API_ERROR', {errorMessage: error.message, errorCode: error.code})
 //       });
 //   }
 //     );

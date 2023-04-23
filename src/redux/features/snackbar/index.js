@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 export const snackbarSlice = createSlice({
     name: "snackbar",
-    initialState: [1,2,3,4,5,7,8,9],
+    initialState: [],
     reducers: {
         addSnackbarQueue: (state, action) => {
             state.push(action.payload);

@@ -1,29 +1,63 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import { Button, TextInput, useTheme } from 'react-native-paper'
+import { StyleSheet, View, ScrollView, KeyboardAvoidingView, Image } from 'react-native'
+import React, { useEffect, useState } from 'react'
+import { Button, Text, TextInput, useTheme } from 'react-native-paper'
+import FullWidthLayout from '../../../layouts/FullWidthLayout'
+import ProviderLoginComponent from '../../../components/ProviderLoginComponent'
+import useSignIn from './useSignIn';
+
+
+
 
 const SignIn = ({navigation}) => {
-  const {colors} = useTheme()
-    console.log('SignIn')
-    const emailRef = React.useRef();
-    const passwordRef = React.useRef();
-    const [email, setEmail] = React.useState('');
-    const [password, setPassword] = React.useState('');
-    const [loading, setLoading] = React.useState(false);
-    const [error, setError] = React.useState('');
-    const [isSecure, setIsSecure] = React.useState(true);
-
+  const {colors, dark} = useTheme()
+  const {
+            signIn,
+            isLoading, 
+            error, 
+            emailRef, 
+            passwordRef, 
+            email,
+            password,
+            loading,
+            isSecure,
+            setIsSecure,
+            setEmail,
+            setPassword,
+            setLoading,
+            setError
+  } = useSignIn()
+  const handleQRCodePress = (event) => {
+    event.preventDefault(); // prevent default behavior of TextInput.Icon
+    // handle QR code icon press here
+    console.log('QR code icon pressed');
+  };
 
   return (
-    <View style={{padding:15}}>
-      <Text>SignIn</Text>
+    <FullWidthLayout>
+    <ScrollView 
+      contentContainerStyle={{justifyContent:'center', flexGrow:1, padding:30, backgroundColor:colors.background}} 
+      showsVerticalScrollIndicator={false}
+      automaticallyAdjustKeyboardInsets={true}
+      automaticallyAdjustContentInsets ={true}
+      // keyboardDismissMode="on-drag"
+      keyboardShouldPersistTaps="handled"
+      contentInsetAdjustmentBehavior="always"
+
+    >
+      <Image
+        source={ dark ? require('../../../assets/images/logo_ugm_putih.png') : require('../../../assets/images/logo_ugm_hitam.png')}
+        style={{width: 100, height: 100, alignSelf:'center', marginBottom:10}}
+      />
+      <Text variant='headlineSmall' style={{alignSelf:'center'}}>Akademik</Text>
+      <Text variant='bodyLarge'  style={{alignSelf:'center', marginBottom:20}}>Universitas Gadjah Mada</Text>
       <TextInput 
         left={<TextInput.Icon size={18} icon={'email'} />}
         mode='outlined'
         label="Email" 
         style={styles.textInput}
         value={email}
-        onChangeText={setEmail}
+        placeholder='nama@domain.com'
+        onChangeText={(text)=> setEmail(text)}
         ref={emailRef}
         onSubmitEditing={()=> passwordRef.current.focus()}
         outlineStyle={{borderRadius:15}}
@@ -32,49 +66,54 @@ const SignIn = ({navigation}) => {
         left={<TextInput.Icon size={18} icon={'lock'} />}
         mode='outlined'
         outlineStyle={{borderRadius:15}}
-        placeholder='Password rahasia yaaa'
+        placeholder='Minimal 6 karakter'
+        value={password}
         label="Password"  
         style={styles.textInput}
-        value={password}
-        onChangeText={setPassword}
+        onChangeText={(text)=> setPassword(text)}
         ref={passwordRef}
-        onSubmitEditing={()=> console.log('login')}
         secureTextEntry={isSecure}
+
         right={
-          <TextInput.Icon icon={isSecure? 'eye-off': 'eye'} size={18} onPress={()=> setIsSecure(!isSecure)}/>
+          <TextInput.Icon icon={isSecure? 'eye-off': 'eye'} size={18} 
+            forceTextInputFocus={false}
+            onPress={()=>
+              setIsSecure(!isSecure)
+              // console.log('show password')
+            }/>
+
+        }
+      />
+
+      <TextInput
+        mode='outlined'
+        label="Kode Akses"
+        style={styles.textInput}
+        outlineStyle={{borderRadius:15}}
+        right={
+          <TextInput.Icon icon={'qrcode'} size={18}
+            // forceTextInputFocus={false}
+            onPress={console.log('QR code icon pressed')
+            }/>
+
         }
 
       />
-      <TextInput
-        mode="outlined"
-        label="Password"
-        value={password}
-        numberOfLines={1}
-        secureTextEntry={isSecure}
-        outlineStyle={{borderRadius:15}}
-        onChangeText={(text) => {
-            setPassword(text)
-            // isShowError && setIsShowError(false)
-        }}
-        left={<TextInput.Icon size={18} icon={'lock'} />}
-        right={ 
-            <TextInput.Icon size={18} onPress={() => {
-                    setIsSecure(!isSecure);
-                    return false;
-                    }}
-                icon={isSecure ? "eye-off" : "eye"} />
-            } //onpress to show password
-        theme={{ roundness: 15 }}
-        style={{marginVertical:10, backgroundColor:colors.elevation.level2}}
-        // error={isErrorInput('password',apiStatus)&& isShowError}
-    />
-      <Button 
-        mode='contained'
-        onPress={()=> console.log('login')}
-        style={{borderRadius:15, marginVertical:10}}
-        contentStyle={{height:48}}
-      > Sign In</Button>
-    </View>
+
+
+      <View style={styles.loginProvider}>
+        <Button 
+          mode='contained'
+          onPress={()=> signIn(email, password)}
+          style={{borderRadius:15, marginTop:20, marginBottom:16}}
+          contentStyle={{height:48}}
+          icon={'login'}
+        > Sign In</Button>
+        <ProviderLoginComponent />
+      </View>
+
+    </ScrollView>
+    </FullWidthLayout>
   )
 }
 
@@ -83,5 +122,12 @@ export default SignIn
 const styles = StyleSheet.create({
   textInput: {
     marginVertical: 10,
+    textAlign:'auto'
+  },
+  loginProvider: {
+    maxWidth: 220,
+    width: '100%',
+    alignSelf: 'center',
+    justifyContent: 'center',
   },
 })
