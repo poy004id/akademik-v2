@@ -3,7 +3,7 @@ import React from 'react';
 import { View , Text} from 'react-native';
 // import { GoogleSignin, GoogleSigninButton } from '@react-native-google-signin/google-signin';
 // import { appleAuth, AppleButton } from '@invertase/react-native-apple-authentication';
-
+import useSnackbar from '../redux/features/snackbar/useSnackbar';
 
 
 export const Logout = async () => {
@@ -26,19 +26,16 @@ export const Logout = async () => {
     };
 
 
-export const onSignin = async (email, password, setIsLoading, setError) => {
+export const onSignin = async (email, password, setEmailError, setPasswordError) => {
     try {
-        console.log('email auth.onSignin ', email);
-        console.log('password auth.onSignin', password);
       const res = await auth().signInWithEmailAndPassword(email, password);
       if (res?.user?.emailVerified === false) {
-        // sendVerifyEmail();
         return 'unverified';
       }
       return true;
     } catch (error) {
-      console.log('error dologiin', error);
-
+      console.log('error onSignin', error);
+        handleError(error.code, setEmailError,setPasswordError )
       return false;
     }
   };
@@ -219,16 +216,16 @@ export const getUid = async () => {
 
 
 // rewrite onForgotPassword function to return data
-export const onForgotPassword = async (email) => {
+export const resetPassword = async (email) => {
+    const {showSnackbar} = useSnackbar();
+    try {
+        return await auth().sendPasswordResetEmail(email);
 
-        await auth().sendPasswordResetEmail(email);
-        const data={ 
-            status: true,
-            message: 'Password reset email sent!',
-            email: email
-        }
-        console.log ('Password reset email sent!',data);
-        return data;
+    } catch (error) {
+        console.log('error resetPassword', error);
+        showSnackbar('Terjadi kesalahan, silahkan coba lagi');
+    }
+
     
 };
 
@@ -391,20 +388,20 @@ export const  AppleLoginButton=() => {
 };
 
 
-export const handleError = (error) => {
-    switch (error.code) {
+export const handleError = (error, setEmailError, setPasswordError) => {
+    switch (error) {
         case 'auth/email-already-in-use':
-            return 'Alamat email tersebut sudah digunakan!';
+            return setEmailError('Alamat email sudah digunakan!');
         case 'auth/invalid-email':
-            return 'Alamat email tidak valid!';
+            return setEmailError('Mohon masukkan alamat email yang valid');
         case 'auth/operation-not-allowed':
-            return 'Masuk dengan Email dan Password tidak diaktifkan!';
+            return setEmailError('Masuk dengan Email dan Password tidak diaktifkan!');
         case 'auth/weak-password':
-            return 'Password terlalu lemah!';
+            return setPasswordError('Password terlalu lemah!');
         case 'auth/wrong-password':
-            return 'Password tidak valid!';
+            return setPasswordError('Password tidak valid!');
         case 'auth/user-not-found':
-            return 'Pengguna tidak ditemukan!';
+            return setEmailError('Email tidak terdaftar!');
         case 'auth/invalid-verification-code':
             return 'Kode verifikasi tidak valid!';
         case 'auth/invalid-verification-id':
@@ -414,7 +411,7 @@ export const handleError = (error) => {
         case 'auth/invalid-action-code':
             return 'Kode tidak valid!';
         case 'auth/user-disabled':
-            return 'Pengguna dinonaktifkan!';
+            return setEmailError('Pengguna dinonaktifkan!');
         case 'auth/too-many-requests':
             return 'Terlalu banyak permintaan. Coba lagi nanti!';
         case 'auth/account-exists-with-different-credential':
@@ -430,7 +427,7 @@ export const handleError = (error) => {
         case 'auth/popup-closed-by-user':
             return 'Popup ditutup oleh pengguna sebelum menyelesaikan operasi.';
         default:
-            return 'Terjadi kesalahan yang tidak terdefinisi.';
+            return 'Terjadi kesalahan server.';
 
     }
 };

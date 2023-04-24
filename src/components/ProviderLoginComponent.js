@@ -27,6 +27,7 @@ const ProviderLoginComponent = () => {
                 style={styles.socialIcon}
                 contentStyle={{ paddingVertical: 3 }}
                 icon='google'
+                
                 // loading={googleLoginApi?.isLoading}
                 >
                 Sign in with Google
@@ -53,8 +54,10 @@ const ProviderLoginComponent = () => {
 export default ProviderLoginComponent
 
 const customStyles = (colors) => StyleSheet.create({
-    socialIcon: { backgroundColor: colors.onPrimary, 
+    socialIcon: { 
+        backgroundColor: colors.onPrimary, 
         marginVertical: 20, 
         borderRadius: 15,
+        borderColor: colors.primary,
      }
 })

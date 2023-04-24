@@ -1,35 +1,40 @@
-import { onSignin } from "../../../services/authService";
-import React, { useEffect, useState } from 'react';
+import { onSignin, handleError } from "../../../services/authService";
+import React, { useEffect, useState, useRef } from 'react';
+import useSnackbar from "../../../redux/features/snackbar/useSnackbar";
 
 const useSignIn = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
-    const emailRef = React.useRef();
-    const passwordRef = React.useRef();
-    const [email, setEmail] = React.useState('');
-    const [password, setPassword] = React.useState('');
-    const [loading, setLoading] = React.useState(false);
-    const [isSecure, setIsSecure] = React.useState(true);
+    const emailRef = useRef();
+    const passwordRef = useRef();
+    const scrollViewRef = useRef();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [loading, setLoading] = useState(false);
+    const [isSecure, setIsSecure] = useState(true);
+    const [emailError, setEmailError] = useState('');
+    const [passwordError, setPasswordError] = useState('');
 
-    useEffect(() => {
-        passwordRef?.current?.focus();
-        passwordRef?.current?.focus()
-        console.log('useEffect 1313')
-    }, [isSecure]);
-    console.log('password in useSignIn', password)
+
+    const {showSnackbar} = useSnackbar()
 
 
     const signIn = async (email, password) => {
-        console.log('useSignIn email :', email)
-        console.log('useSignIn password :', password)
         try {
+            if (!email ) {
+                return setEmailError('Mohon masukan email yang valid');
+            }
+            if (!password) {
+                return setPasswordError('Password tidak boleh kosong');
+            }
+
             setLoading(true);
-            const response = await onSignin(email, password);
+            await onSignin23(email, password);
             setLoading(false);
-            return response;
+            // return ;
         } catch (error) {
             setLoading(false);
-            setError(error);
+            showSnackbar('Terjadi kesalahan server')
             console.log(error);
         }
     }
@@ -42,6 +47,10 @@ const useSignIn = () => {
             password,
             loading,
             isSecure,
+            emailError,
+            passwordError,
+            setEmailError,
+            setPasswordError,
             setIsSecure,
             setEmail,
             setPassword,

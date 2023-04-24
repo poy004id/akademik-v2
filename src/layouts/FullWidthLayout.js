@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
-import { useTheme } from 'react-native-paper';
+import { Text, useTheme } from 'react-native-paper';
 import SnackbarComponent from '../components/SnackbarComponent';
 
 const FullWidthLayout = ({AppFAB, AppFooter, AppBody,  children }) => {
@@ -14,12 +14,12 @@ const FullWidthLayout = ({AppFAB, AppFooter, AppBody,  children }) => {
     });
   
   return (
-    <View style={{backgroundColor:colors.background, flex:1}}>
-    <SafeAreaView style={{flex:1}}>
+    <View style={{ flex:1}}>
+    <SafeAreaView style={{flex:1}} >
       <View style={styles.container}>
        {children}
       </View>
-      <View style={{bottom:FABCount * 70 }}>
+      <View style={{bottom:FABCount * 70}}>
         <SnackbarComponent/>
       </View>
       <View style={{right:16, bottom:16}}>
@@ -36,9 +36,8 @@ const FullWidthLayout = ({AppFAB, AppFooter, AppBody,  children }) => {
 const customStyles = (colors) => StyleSheet.create({
   container: {
     flex: 1,
+    // flexGrow: 1,
     backgroundColor: colors.background,
-    flexGrow: 1,
-    flexShrink: 1,
   },
   fab: {
     position: 'absolute',

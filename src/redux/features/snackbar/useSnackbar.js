@@ -5,6 +5,7 @@ const useSnackbar = () => {
     const dispatch = useDispatch();
     
     const showSnackbar = (payload) => {
+        console.log( 'showSnackbar', payload)
         dispatch(addSnackbarQueue(payload));
     };
 

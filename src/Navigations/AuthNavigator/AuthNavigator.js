@@ -5,6 +5,8 @@ import StackHeader from '../components/StackHeader';
 
 import SignIn from '../../screens/authStack/SignIn';
 import SignUp from '../../screens/authStack/SigUp';
+import VerifyEmail from '../../screens/authStack/VerifyEmail';
+import ForgotPassword from '../../screens/authStack/ForgotPassword';
 
 function AuthNavigator() {
 const Stack = createNativeStackNavigator();
@@ -25,6 +27,8 @@ console.log('AuthNavigator')
     >
       <Stack.Screen name="SignIn" component={SignIn}  />
       <Stack.Screen name="SignUp" component={SignUp} />
+      <Stack.Screen name="VerifyEmail" component={VerifyEmail}  />
+      <Stack.Screen name="ForgotPassword"  component={ForgotPassword} options={{headerTitle: 'Lupa Password'}} />
      
     </Stack.Navigator>
   );

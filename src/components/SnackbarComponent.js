@@ -20,10 +20,11 @@ const SnackbarComponent = () => {
           return () => clearTimeout(timer);
         }
     }, [snackbarQueue])
+    
 
 
   return (
-    useMemo(() => {
+    
     snackbarQueue.map((message, index) => ( 
       <Snackbar
         visible={index === 0}
@@ -41,7 +42,6 @@ const SnackbarComponent = () => {
         </Text>
       </Snackbar>
     ))
-      }, [snackbarQueue])
     
   )
 }

@@ -1,49 +1,50 @@
-import { StyleSheet, View, ScrollView, KeyboardAvoidingView, Image } from 'react-native'
+import { StyleSheet, View, ScrollView, TouchableOpacity, Image } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { Button, Text, TextInput, useTheme } from 'react-native-paper'
 import FullWidthLayout from '../../../layouts/FullWidthLayout'
 import ProviderLoginComponent from '../../../components/ProviderLoginComponent'
+import FormContainer from '../../../components/FormContainer'
 import useSignIn from './useSignIn';
-
-
-
+import HelperText from '../../../components/HelperText'
 
 const SignIn = ({navigation}) => {
   const {colors, dark} = useTheme()
+  const styles = customStyles(colors)
   const {
             signIn,
             isLoading, 
             error, 
             emailRef, 
             passwordRef, 
+            scrollViewRef,
             email,
             password,
             loading,
             isSecure,
+            emailError,
+            passwordError,
+            setEmailError,
+            setPasswordError,
             setIsSecure,
             setEmail,
             setPassword,
             setLoading,
             setError
   } = useSignIn()
-  const handleQRCodePress = (event) => {
-    event.preventDefault(); // prevent default behavior of TextInput.Icon
-    // handle QR code icon press here
-    console.log('QR code icon pressed');
-  };
 
   return (
     <FullWidthLayout>
     <ScrollView 
-      contentContainerStyle={{justifyContent:'center', flexGrow:1, padding:30, backgroundColor:colors.background}} 
+      contentContainerStyle={{justifyContent:'center', flexGrow:1, padding:20, backgroundColor:colors.background}} 
       showsVerticalScrollIndicator={false}
       automaticallyAdjustKeyboardInsets={true}
-      automaticallyAdjustContentInsets ={true}
-      // keyboardDismissMode="on-drag"
+      automaticallyAdjustContentInsets={true}
+      contentInsetAdjustmentBehavior="automatic"
       keyboardShouldPersistTaps="handled"
-      contentInsetAdjustmentBehavior="always"
-
-    >
+      
+      ref={scrollViewRef}
+      
+      >
       <Image
         source={ dark ? require('../../../assets/images/logo_ugm_putih.png') : require('../../../assets/images/logo_ugm_hitam.png')}
         style={{width: 100, height: 100, alignSelf:'center', marginBottom:10}}
@@ -57,11 +58,12 @@ const SignIn = ({navigation}) => {
         style={styles.textInput}
         value={email}
         placeholder='nama@domain.com'
-        onChangeText={(text)=> setEmail(text)}
+        onChangeText={(text)=> {setEmail(text); emailError && setEmailError('')}} 
         ref={emailRef}
         onSubmitEditing={()=> passwordRef.current.focus()}
         outlineStyle={{borderRadius:15}}
       />
+      {emailError && <HelperText>{emailError}</HelperText>}
       <TextInput 
         left={<TextInput.Icon size={18} icon={'lock'} />}
         mode='outlined'
@@ -70,13 +72,13 @@ const SignIn = ({navigation}) => {
         value={password}
         label="Password"  
         style={styles.textInput}
-        onChangeText={(text)=> setPassword(text)}
+        onChangeText={(text)=> {setPassword(text); passwordError && setPasswordError('')}}
         ref={passwordRef}
         secureTextEntry={isSecure}
 
         right={
           <TextInput.Icon icon={isSecure? 'eye-off': 'eye'} size={18} 
-            forceTextInputFocus={false}
+            forceTextInputFocus={true}
             onPress={()=>
               setIsSecure(!isSecure)
               // console.log('show password')
@@ -84,23 +86,12 @@ const SignIn = ({navigation}) => {
 
         }
       />
-
-      <TextInput
-        mode='outlined'
-        label="Kode Akses"
-        style={styles.textInput}
-        outlineStyle={{borderRadius:15}}
-        right={
-          <TextInput.Icon icon={'qrcode'} size={18}
-            // forceTextInputFocus={false}
-            onPress={console.log('QR code icon pressed')
-            }/>
-
-        }
-
-      />
-
-
+      {passwordError&& <HelperText>{passwordError}</HelperText>}
+      <View style={{ flexDirection: 'row', justifyContent: 'flex-end', marginBottom: 10, marginTop:10, alignItems:'center' }}>
+          <TouchableOpacity onPress={() => navigation.navigate('ForgotPassword')} style={{marginHorizontal:10}}>
+              <Text variant="labelMedium" style={{ color:colors.primary, fontWeight:'bold' }}>Lupa password</Text>
+          </TouchableOpacity>
+      </View>
       <View style={styles.loginProvider}>
         <Button 
           mode='contained'
@@ -110,8 +101,8 @@ const SignIn = ({navigation}) => {
           icon={'login'}
         > Sign In</Button>
         <ProviderLoginComponent />
+        <Text onPress={()=>navigation.navigate('VerifyEmail')}>verify email </Text>
       </View>
-
     </ScrollView>
     </FullWidthLayout>
   )
@@ -119,10 +110,12 @@ const SignIn = ({navigation}) => {
 
 export default SignIn
 
-const styles = StyleSheet.create({
+const customStyles = (colors) => StyleSheet.create({
   textInput: {
-    marginVertical: 10,
-    textAlign:'auto'
+    textAlign:'auto',
+    // marginTop: 5,ff
+    marginTop:10,
+    marginBottom:5
   },
   loginProvider: {
     maxWidth: 220,
@@ -130,4 +123,10 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     justifyContent: 'center',
   },
+  helperText: {
+    paddingLeft: 16,
+    lineHeight:14,
+    marginBottom:4
+    // backgroundColor:'red'
+  }
 })
