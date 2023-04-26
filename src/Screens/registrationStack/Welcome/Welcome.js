@@ -1,10 +1,10 @@
 import { ScrollView, StyleSheet, View } from 'react-native'
 import React, {useEffect, useRef, useState} from 'react'
-import BaseLayout from '../../Layout/BaseLayout';
+import BaseLayout from '../../../layouts/BaseLayout';
 import { Button, IconButton, List, Text, useTheme } from 'react-native-paper';
 import AnimatedLottieView from 'lottie-react-native';
-import Container from '../../component/Container';
-import {testConnection} from './useApi';
+// import Container from '../../component/Container';
+// import {testConnection} from './useApi';
 const Welcome = ({navigation}) => {
     const {colors} = useTheme();
     const styles= customStyles(colors);
@@ -15,18 +15,17 @@ const Welcome = ({navigation}) => {
     }, []);
 
     const BodyComponet = () => (
-        <Container>
-        <ScrollView contentContainerStyle={{justifyContent:'space-between', flexGrow:1, alignContent:'center', padding:20}} showsVerticalScrollIndicator={false} >
+        <ScrollView contentContainerStyle={{justifyContent:'space-between', flexGrow:1, alignContent:'center'}} showsVerticalScrollIndicator={false} >
             <View>
-            <View style={{alignSelf:'center', marginBottom: 40, paddingTop:20}}>
+            <View style={{alignSelf:'center', marginBottom: 20, paddingTop:20}}>
             <AnimatedLottieView
-                source={require('../../../asset/lottie/doctor.json')}
+                source={require('../../../assets/lottie/doctor.json')}
                 ref={animationRef}
-                style={{width: 180, height: 180, alignSelf: 'center', }}
+                style={{width: 150, height: 150, alignSelf: 'center', }}
             />
             </View>
 
-            <Text variant='headlineMedium' style={{alignSelf:'center',  color:colors.primary, fontWeight:'bold'}}>Praktik di RSA UGM?</Text>
+            <Text variant='headlineSmall' style={{alignSelf:'center',  color:colors.primary, fontWeight:'bold'}}>Praktik di RSA UGM?</Text>
             <Text variant='bodyLarge' style={{alignSelf:'center', marginBottom:20}}>Ikuti langkah-langkah berikut!</Text>
             <List.Item
                 style={{paddingRight: 10}}
@@ -40,7 +39,7 @@ const Welcome = ({navigation}) => {
 
             <List.Item
                 style={{paddingRight: 10}}
-                title="Verifikasi Data oleh Petugas"
+                title="Verifikasi Data"
                 titleStyle={styles.titleList}
                 descriptionStyle={styles.descriptionList}
                 descriptionNumberOfLines={4}
@@ -61,7 +60,7 @@ const Welcome = ({navigation}) => {
 
             <Button
                 mode='contained'
-                onPress={() => navigation.navigate('FormInput')}
+                onPress={() => navigation.navigate('Registration')}
                 style={{marginTop:20, borderRadius:10, }}
                 contentStyle={{paddingVertical:3, flexDirection:'row-reverse', }}
                 icon="chevron-right"
@@ -70,7 +69,7 @@ const Welcome = ({navigation}) => {
             </Button>
                 </View>
         </ScrollView>
-        </Container>
+        // </Container>
     )
   return (
     <BaseLayout

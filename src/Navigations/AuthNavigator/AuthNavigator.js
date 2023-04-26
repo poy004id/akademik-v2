@@ -4,9 +4,11 @@ import StackHeader from '../components/StackHeader';
 
 
 import SignIn from '../../screens/authStack/SignIn';
-import SignUp from '../../screens/authStack/SigUp';
+import SignUp from '../../screens/authStack/SignUp';
 import VerifyEmail from '../../screens/authStack/VerifyEmail';
+import ResetPassword from '../../screens/authStack/ResetPassword';
 import ForgotPassword from '../../screens/authStack/ForgotPassword';
+import Test from '../../screens/authStack/Test';
 
 function AuthNavigator() {
 const Stack = createNativeStackNavigator();
@@ -25,11 +27,12 @@ console.log('AuthNavigator')
       }}
     
     >
-      <Stack.Screen name="SignIn" component={SignIn}  />
-      <Stack.Screen name="SignUp" component={SignUp} />
-      <Stack.Screen name="VerifyEmail" component={VerifyEmail}  />
+      <Stack.Screen name="SignIn" component={SignIn}  options={{headerTitle: 'Sign In'}} />
+      <Stack.Screen name="SignUp" component={SignUp} options={{headerTitle: 'Sign Up'}} />
+      <Stack.Screen name="VerifyEmail" component={VerifyEmail} options={{headerTitle: 'Verifikasi Email'}} />
+      <Stack.Screen name="ResetPassword" component={ResetPassword} options={{headerTitle: 'Reset Password'}} />
       <Stack.Screen name="ForgotPassword"  component={ForgotPassword} options={{headerTitle: 'Lupa Password'}} />
-     
+      <Stack.Screen name="Test" component={Test} />
     </Stack.Navigator>
   );
 }

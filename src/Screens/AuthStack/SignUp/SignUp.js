@@ -4,14 +4,14 @@ import { Button, Text, TextInput, useTheme } from 'react-native-paper'
 import FullWidthLayout from '../../../layouts/FullWidthLayout'
 import ProviderLoginComponent from '../../../components/ProviderLoginComponent'
 import FormContainer from '../../../components/FormContainer'
-import useSignIn from './useSignIn';
+import useSignUp from './useSignUp';
 import HelperText from '../../../components/HelperText'
 
-const SignIn = ({navigation}) => {
+const SignUp = ({navigation}) => {
   const {colors, dark} = useTheme()
   const styles = customStyles(colors)
   const {
-            signIn,
+            signUp,
             isLoading, 
             error, 
             emailRef, 
@@ -30,7 +30,7 @@ const SignIn = ({navigation}) => {
             setPassword,
             setLoading,
             setError
-  } = useSignIn()
+  } = useSignUp()
 
   return (
     <FullWidthLayout>
@@ -85,30 +85,22 @@ const SignIn = ({navigation}) => {
             forceTextInputFocus={true}
             onPress={()=>
               setIsSecure(!isSecure)
-              // console.log('show password')
             }/>
 
         }
       />
       {passwordError&& <HelperText>{passwordError}</HelperText>}
       <View style={{ flexDirection: 'row', justifyContent: 'flex-end', marginBottom: 10, marginTop:10, alignItems:'center' }}>
-          <TouchableOpacity onPress={() => navigation.navigate('ForgotPassword')} style={{marginHorizontal:10}}>
-              <Text variant="labelMedium" style={{ color:colors.primary, fontWeight:'bold' }}>Lupa password</Text>
-          </TouchableOpacity>
       </View>
       <View style={styles.loginProvider}>
         <Button 
           mode='contained'
-          onPress={()=> signIn(email, password)}
+          onPress={()=> signUp(email, password)}
           style={{borderRadius:15, marginTop:20, marginBottom:16}}
           contentStyle={{height:48}}
-          icon={'login'}
-        > Sign In</Button>
+        > Sign Up</Button>
         <ProviderLoginComponent />
-        <Text  variant="labelMedium" style={styles.registerText}>  Belum punya akun?  <Text style={{color:colors.primary, fontWeight:'bold'}} onPress={()=> navigation.navigate('SignUp')}> Sign Up</Text> </Text>
-        <Text onPress={()=>navigation.navigate('VerifyEmail')}>verify email </Text>
-        <Text onPress={()=>navigation.navigate('VerifyEmail')}>verify email </Text>
-        <Text onPress={()=>navigation.navigate('Test')}>Test </Text>
+        <Text  variant="labelMedium" style={styles.registerText}>  Sudah punya akun?  <Text style={{color:colors.primary, fontWeight:'bold'}} onPress={()=> navigation.navigate('SignIn')}> Sign In</Text> </Text>
       </View>
     </ScrollView>
     </View>
@@ -116,7 +108,7 @@ const SignIn = ({navigation}) => {
   )
 }
 
-export default SignIn
+export default SignUp
 
 const customStyles = (colors) => StyleSheet.create({
   textInput: {
@@ -135,7 +127,6 @@ const customStyles = (colors) => StyleSheet.create({
     paddingLeft: 16,
     lineHeight:14,
     marginBottom:4
-    // backgroundColor:'red'
   },
   registerText:{
     marginBottom:20,

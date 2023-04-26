@@ -1,8 +1,8 @@
-import { onSignin, handleError } from "../../../services/authService";
+import { onSignUp, handleError } from "../../../services/authService";
 import React, { useEffect, useState, useRef } from 'react';
 import useSnackbar from "../../../redux/features/snackbar/useSnackbar";
 
-const useSignIn = () => {
+const useSignUp = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
     const emailRef = useRef();
@@ -19,7 +19,7 @@ const useSignIn = () => {
     const {showSnackbar} = useSnackbar()
 
 
-    const signIn = async (email, password) => {
+    const signUp = async (email, password) => {
         try {
             if (!email ) {
                 return setEmailError('Mohon masukan email yang valid');
@@ -29,7 +29,7 @@ const useSignIn = () => {
             }
 
             setLoading(true);
-            await onSignin(email, password);
+            await onSignUp(email, password);
             setLoading(false);
             // return ;
         } catch (error) {
@@ -38,7 +38,7 @@ const useSignIn = () => {
             console.log(error);
         }
     }
-    return { signIn, 
+    return { signUp, 
             isLoading, 
             error, 
             emailRef, 
@@ -60,4 +60,4 @@ const useSignIn = () => {
 
 
 }
-export default useSignIn;
+export default useSignUp;

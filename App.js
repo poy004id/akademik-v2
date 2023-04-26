@@ -1,6 +1,3 @@
-
-import AppNavigator from './src/navigations/appNavigator';
-import AuthNavigator from './src/navigations/authNavigator';
 import {useEffect, useState, useCallback} from 'react'
 import auth from '@react-native-firebase/auth'
 // import { getNewToken, Logout } from './src/service/firebase/auth.js';
@@ -12,13 +9,18 @@ import { useTheme } from 'react-native-paper';
 // import {enableLatestRenderer} from 'react-native-maps';
 // enableLatestRenderer();
 
+import AppNavigator from './src/navigations/AppNavigator';
+import AuthNavigator from './src/navigations/AuthNavigator';
+import RegistrationNavigator from './src/navigations/RegistrationNavigator';
 import SplashScreen from './src/screens/SplashScreen';
+import VerifyEmail from './src/screens/authStack/VerifyEmail/VerifyEmail';
 // import {getRegistrationData} from './src/screen/Home/useData';
 
 const App = () => {
     const {colors} = useTheme();
     const [initializing, setInitializing] = useState(true);
     const [user, setUser] = useState();
+    const [registration_id, setRegistrationId] = useState(null);
 
 
     useEffect(() => {
@@ -56,9 +58,8 @@ const App = () => {
         <NavigationContainer>
             {/* <StatusBar backgroundColor={colors.primary} barStyle="light-content"/> */}
             {initializing && <SplashScreen isLoading={initializing} />}
-            {user?.emailVerified? <AppNavigator/> :
-            <AuthNavigator/>
-            // <AppNavigator/>
+            {/* {!user&&<AuthNavigator/>} */}
+            {user?.emailVerified ? registration_id ? <AppNavigator/> : <RegistrationNavigator/> : <AuthNavigator/>
             }
         </NavigationContainer>
     )

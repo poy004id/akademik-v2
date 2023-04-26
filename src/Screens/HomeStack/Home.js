@@ -5,7 +5,7 @@ import { useTheme, IconButton, Button } from 'react-native-paper'
 export const HomeScreenOptions = ({navigation})=> ({
   headerRight: () => (
     <IconButton
-      icon="bell"
+      icon="logout-variant"
       iconColor={useTheme().colors.onPrimary}
       // iconColor='red'
       size={24}

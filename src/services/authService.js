@@ -41,19 +41,15 @@ export const onSignin = async (email, password, setEmailError, setPasswordError)
   };
   
 
-export const onRegister = async (email, password) => {
-    // handleApi('onRegister', 'API_RESET', null)
-    // handleApi('onRegister', 'API_LOADING', {path: 'onRegister'})
+export const onSignUp = async (email, password) => {
     return await auth()
         .createUserWithEmailAndPassword(email, password)
         .then((user) => {
             console.log('user in aut onregister', user);
             sendVerifyEmail();
-            // handleApi('onRegister', 'API_SUCCESS', null)
             return true;
         })
         .catch(error => {
-            // handleApi('onRegister', 'API_ERROR', {errorMessage: error.message, errorCode: error.code})
             console.log('error in register', error);
             console.error(error);
             return false;
@@ -217,15 +213,12 @@ export const getUid = async () => {
 
 // rewrite onForgotPassword function to return data
 export const resetPassword = async (email) => {
-    const {showSnackbar} = useSnackbar();
     try {
         return await auth().sendPasswordResetEmail(email);
 
     } catch (error) {
         console.log('error resetPassword', error);
-        showSnackbar('Terjadi kesalahan, silahkan coba lagi');
     }
-
     
 };
 
