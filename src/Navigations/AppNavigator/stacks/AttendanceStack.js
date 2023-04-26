@@ -1,7 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import StackHeader from '../../components/StackHeader';
 
-import Attendance from '../../../screens/attendanceStack';
+import Attendance from '../../../Screens/AttendanceStack';
 
 function AttendanceStack() {
 const Stack = createNativeStackNavigator();

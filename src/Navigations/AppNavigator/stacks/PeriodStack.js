@@ -1,6 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import StackHeader from '../../components/StackHeader';
-import Period from '../../../screens/periodStack';
+import Period from '../../../Screens/PeriodStack';
 
 function PeriodStack() {
 const Stack = createNativeStackNavigator();

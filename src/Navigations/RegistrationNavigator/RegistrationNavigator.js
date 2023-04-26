@@ -1,8 +1,8 @@
 
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import StackHeader from '../components/StackHeader';
-import Welcome from '../../screens/registrationStack/Welcome';
-import Registration, {RegistrationScreenOptions} from '../../screens/registrationStack/Registration';
+import Welcome from '../../Screens/registrationStack/Welcome';
+import Registration, {RegistrationScreenOptions} from '../../Screens/registrationStack/Registration';
 import {Text} from 'react-native';
 
 

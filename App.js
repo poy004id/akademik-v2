@@ -9,11 +9,11 @@ import { useTheme } from 'react-native-paper';
 // import {enableLatestRenderer} from 'react-native-maps';
 // enableLatestRenderer();
 
-import AppNavigator from './src/navigations/AppNavigator';
-import AuthNavigator from './src/navigations/AuthNavigator';
-import RegistrationNavigator from './src/navigations/RegistrationNavigator';
-import SplashScreen from './src/screens/SplashScreen';
-import VerifyEmail from './src/screens/authStack/VerifyEmail/VerifyEmail';
+import AppNavigator from './src/Navigations/AppNavigator';
+import AuthNavigator from './src/Navigations/AuthNavigator';
+import RegistrationNavigator from './src/Navigations/RegistrationNavigator';
+import SplashScreen from './src/Screens/SplashScreen';
+import VerifyEmail from './src/Screens/AuthStack/VerifyEmail/VerifyEmail';
 // import {getRegistrationData} from './src/screen/Home/useData';
 
 const App = () => {
