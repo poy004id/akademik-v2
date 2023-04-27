@@ -1,6 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import StackHeader from '../../components/StackHeader';
-import Account from '../../../Screens/AccountStack';
+import Account from '../../../screens/AppNavigator/AccountStack';
 
 function AccountStack() {
 const Stack = createNativeStackNavigator();

@@ -1,8 +1,8 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React, { useEffect } from 'react'
 import { useTheme, FAB, Button, TextInput } from 'react-native-paper'
-import FullWidthLayout, {showSnackbar} from '../../layouts/FullWidthLayout'
-import useSnackbar from '../../redux/features/snackbar/useSnackbar'
+import FullWidthLayout, {showSnackbar} from '../../../layouts/FullWidthLayout'
+import useSnackbar from '../../../redux/features/snackbar/useSnackbar'
 
 const Test2 = ({navigation}) => {
     const {colors} = useTheme()

@@ -1,6 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import StackHeader from '../../components/StackHeader';
-import Logbook from '../../../Screens/logbookStack';
+import Logbook from '../../../screens/AppNavigator/LogbookStack';
 
 function LogbookNavigator() {
 const Stack = createNativeStackNavigator();

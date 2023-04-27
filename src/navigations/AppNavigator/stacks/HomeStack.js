@@ -3,11 +3,11 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import StackHeader from '../../components/StackHeader';
 import {View} from 'react-native';
 
-import Home, {HomeScreenOptions} from '../../../Screens/HomeStack';
-import Test, {TestScreenOptions} from '../../../Screens/HomeStack/Test';
-import Test2 from '../../../Screens/HomeStack/Test2';
-import Test3 from '../../../Screens/HomeStack/Test3';
-import TestRedux from '../../../Screens/HomeStack/testRedux';
+import Home, {HomeScreenOptions} from '../../../screens/AppNavigator/HomeStack';
+import Test, {TestScreenOptions} from '../../../screens/AppNavigator/HomeStack/Test';
+import Test2 from '../../../screens/AppNavigator/HomeStack/Test2';
+import Test3 from '../../../screens/AppNavigator/HomeStack/Test3';
+import TestRedux from '../../../screens/AppNavigator/HomeStack/testRedux';
 
 console.log('HomeStack', HomeScreenOptions)
 function HomeStack() {

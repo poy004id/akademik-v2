@@ -1,9 +1,9 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import useSnackbar from '../../redux/features/snackbar/useSnackbar'
+import useSnackbar from '../../../redux/features/snackbar/useSnackbar'
 import { Button } from 'react-native-paper'
-import SnackbarComponent from '../../components/SnackbarComponent'
+import SnackbarComponent from '../../../components/SnackbarComponent'
 
 const TestRedux = () => {
   const snackbarQueue = useSelector(state => state.snackbarQueue)
