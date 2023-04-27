@@ -58,9 +58,12 @@ const App = () => {
         <NavigationContainer>
             {/* <StatusBar backgroundColor={colors.primary} barStyle="light-content"/> */}
             {initializing && <SplashScreen isLoading={initializing} />}
-            {/* {!user&&<AuthNavigator/>} */}
-            {user?.emailVerified ? registration_id ? <AppNavigator/> : <RegistrationNavigator/> : <AuthNavigator/>
-            }
+            {!user?.emailVerified ?
+              <AuthNavigator/> : 
+              !registration_id ? 
+                  <RegistrationNavigator/> : 
+                  <AppNavigator/>
+                }
         </NavigationContainer>
     )
 }
