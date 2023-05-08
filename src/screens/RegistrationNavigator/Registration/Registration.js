@@ -1,9 +1,9 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View , Alert} from 'react-native'
 import React, { useEffect } from 'react'
 import { useTheme, IconButton, Button } from 'react-native-paper'
 import { useSelector, useDispatch } from 'react-redux';
 import { setAlert, clearAlert } from '../../../redux/features/alert';
-import AlertComponent from '../../../components/AlertComponent';
+import useAlert from '../../../hooks/useAlert';
 
 
 export const RegistrationScreenOptions = ()=> ({
@@ -17,11 +17,27 @@ export const RegistrationScreenOptions = ()=> ({
     ),
   });
 
+  const createTwoButtonAlert = () =>
+    Alert.alert('Alert Title', `My Alert Msg but it is 
+    so long long long 
+    long text that even need multiple line to display. how long it will  until the paragraght automatically kfhkfh krghfkhm fhjfkhf  
+     How it will look in ios`, [
+      {
+        text: 'Cancel',
+        onPress: () => console.log('Cancel Pressed'),
+        style: 'cancel',
+      },
+      {text: 'OK', onPress: () => console.log('OK Pressed')},
+    ]);
+
 const Registration = () => {
     const alert = useSelector(state=>state.alert)
     console.log ('alert', alert)
     const dispatch = useDispatch();
-    const {CustomAlert, showAlert} = AlertComponent();
+    const {CustomAlert, showAlert} = useAlert();
+    const handleConfirm = () => {
+      console.log('Confirm button pressed');
+    };
 
 
   return (
@@ -30,14 +46,20 @@ const Registration = () => {
       <Button
         onPress={()=>
             dispatch(setAlert({
-                title: 'test tole',
-                message: 'This is an example alert message.',
+                title: 'Do You Want to Logout?',
+                message: `This is an example alert message.
+test 123 test 123 test 123 
+test 123 tst1243 test 123`,
                 icon: 'logout-variant',
-                type: 'success'
+                type: 'success',
+                confirmText: 'OK',
+                cancelText:'Cancel',
+                // onCancelPress: handleConfirm,
+                // onConfirmPress: handleConfirm
 
             }))
         }
-        >Set Alert</Button>
+        >Set Alert1</Button>
 
         <Button
         onPress={()=>
@@ -50,11 +72,16 @@ const Registration = () => {
         >Set Alert</Button>
 
         <Button
+        onPress={()=> createTwoButtonAlert()
+        }
+        >Alert React native</Button>
+
+        <Button
         onPress={()=>
             dispatch(clearAlert())
         }
         >Clear Alert</Button>
-        <CustomAlert/>
+        {alert.title && <CustomAlert/>}
     </View>
   )
 }

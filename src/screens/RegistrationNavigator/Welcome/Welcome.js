@@ -11,18 +11,18 @@ const Welcome = ({navigation}) => {
     const animationRef = useRef(null);
 
     useEffect(() => {
-        animationRef.current.play();
+        // animationRef.current.play();
     }, []);
 
     const BodyComponet = () => (
         <ScrollView contentContainerStyle={{justifyContent:'space-between', flexGrow:1, alignContent:'center'}} showsVerticalScrollIndicator={false} >
             <View>
             <View style={{alignSelf:'center', marginBottom: 20, paddingTop:20}}>
-            <AnimatedLottieView
+            {/* <AnimatedLottieView
                 source={require('../../../assets/lottie/doctor.json')}
                 ref={animationRef}
                 style={{width: 150, height: 150, alignSelf: 'center', }}
-            />
+            /> */}
             </View>
 
             <Text variant='headlineSmall' style={{alignSelf:'center',  color:colors.primary, fontWeight:'bold'}}>Praktik di RSA UGM?</Text>
