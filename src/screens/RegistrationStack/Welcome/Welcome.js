@@ -60,7 +60,7 @@ const Welcome = ({navigation}) => {
 
             <Button
                 mode='contained'
-                onPress={() => navigation.navigate('Registration')}
+                onPress={() => navigation.navigate('PersonalData')}
                 style={{marginTop:20, borderRadius:10, }}
                 contentStyle={{paddingVertical:3, flexDirection:'row-reverse', }}
                 icon="chevron-right"

@@ -2,7 +2,7 @@
 
 import { StyleSheet,  View, SafeAreaView, Platform } from 'react-native'
 import React from 'react'
-// import { onGoogleLogin, onAppleLogin, GoogleLoginButton } from '../service/firebase/auth'
+import { onGoogleLogin, onAppleLogin, GoogleLoginButton } from '../services/authService'
 import { IconButton, useTheme, Divider, Button, Text } from 'react-native-paper'
 import {useSelector} from 'react-redux'
 
@@ -23,7 +23,7 @@ const ProviderLoginComponent = () => {
         {Platform.OS == 'android' && 
 
             <Button mode="outlined"
-                // onPress={() => { onGoogleLogin() }}
+                onPress={() => { onGoogleLogin() }}
                 style={styles.socialIcon}
                 contentStyle={{ paddingVertical: 3 }}
                 icon='google'

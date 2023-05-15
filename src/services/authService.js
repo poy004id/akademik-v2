@@ -1,9 +1,10 @@
 import auth, {firebase} from '@react-native-firebase/auth';
 import React from 'react';
 import { View , Text} from 'react-native';
-// import { GoogleSignin, GoogleSigninButton } from '@react-native-google-signin/google-signin';
+import { GoogleSignin, GoogleSigninButton } from '@react-native-google-signin/google-signin';
 // import { appleAuth, AppleButton } from '@invertase/react-native-apple-authentication';
 import useSnackbar from '../redux/features/snackbar/useSnackbar';
+import {GOOGLE_WEB_CLIENT_ID} from '@env';
 
 
 export const Logout = async () => {
@@ -11,11 +12,10 @@ export const Logout = async () => {
     try {
         if (firebase.auth().currentUser) {
             await auth().signOut()
-
-            // GoogleSignin.configure({
-            //     webClientId: '1020420479230-4n1b09us55qb5i0djs71s3f5gf66tnfv.apps.googleusercontent.com',
-            // });
-            // return await GoogleSignin.signOut();
+            GoogleSignin.configure({
+                webClientId: GOOGLE_WEB_CLIENT_ID,
+            });
+            return await GoogleSignin.signOut();
           } else {
             console.log("No user currently signed in.");
           }
@@ -92,10 +92,8 @@ export const sendVerifyEmail = async () => {
 
 export const onGoogleLogin = async () => {
     return new Promise((resolve, reject) => {
-        // handleApi('onGoogleLogin', 'API_RESET', null)
-        // handleApi('onGoogleLogin', 'API_LOADING', {path: 'onGoogleLogin'})
         GoogleSignin.configure({
-            webClientId: '1020420479230-4n1b09us55qb5i0djs71s3f5gf66tnfv.apps.googleusercontent.com',
+            webClientId: GOOGLE_WEB_CLIENT_ID,
         });
         GoogleSignin.hasPlayServices()
             .then(() => {
@@ -105,26 +103,22 @@ export const onGoogleLogin = async () => {
                         const googleCredential = auth.GoogleAuthProvider.credential(idToken);
                         auth().signInWithCredential(googleCredential)
                             .then((res) => {
-                                // handleApi('onGoogleLogin', 'API_SUCCESS', null)
                                 resolve(res);
                             })
                             .catch((error) => {
-                                // reject(error);
                                 console.log('error', error)
-                                // handleApi('onGoogleLogin', 'API_ERROR', {errorMessage: error.message, errorCode: error.code})
+                                reject(error);
                             });
                     })
                     .catch((error) => {
-                        // reject(error);
                         console.log('error', error)
-                        // handleApi('onGoogleLogin', 'API_ERROR', {errorMessage: error.message, errorCode: error.code})
+                        reject(error);
                     });
             }
             )
             .catch((error) => {
-                // reject(error);
                 console.log('error', error)
-                // handleApi('onGoogleLogin', 'API_ERROR', {errorMessage: error.message, errorCode: error.code})
+                reject(error);
             }
             );
     }

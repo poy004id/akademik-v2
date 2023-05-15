@@ -4,6 +4,7 @@ import { useTheme, IconButton, Button } from 'react-native-paper'
 import { useSelector, useDispatch } from 'react-redux';
 import { setAlert, clearAlert } from '../../../redux/features/alert';
 import AlertComponent from '../../../components/AlertComponent';
+import { Logout } from '../../../services/authService';
 
 
 export const RegistrationScreenOptions = ()=> ({
@@ -12,7 +13,7 @@ export const RegistrationScreenOptions = ()=> ({
         icon="logout-variant"
         iconColor={useTheme().colors.onPrimary}
         size={22}
-        onPress={() => {console.log('Custom action button pressed')}}
+        onPress={Logout}
       />
     ),
   });

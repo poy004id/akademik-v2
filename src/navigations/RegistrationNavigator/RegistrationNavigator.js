@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import StackHeader from '../components/StackHeader';
 import Welcome from '../../screens/RegistrationStack/Welcome';
 import Registration, {RegistrationScreenOptions} from '../../screens/RegistrationStack/Registration';
+import PersonalData from '../../screens/RegistrationStack/PersonalData';
 import {Text} from 'react-native';
 
 
@@ -26,6 +27,10 @@ console.log('AuthNavigator')
           options={RegistrationScreenOptions}
         />
         <Stack.Screen name="Registration" component={Registration}
+          options={
+            RegistrationScreenOptions}
+        />
+        <Stack.Screen name="PersonalData" component={PersonalData}
           options={
             RegistrationScreenOptions}
         />
