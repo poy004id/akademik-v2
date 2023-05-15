@@ -12,8 +12,8 @@ import { useTheme } from 'react-native-paper';
 import AppNavigator from './src/navigations/AppNavigator';
 import AuthNavigator from './src/navigations/AuthNavigator';
 import RegistrationNavigator from './src/navigations/RegistrationNavigator';
-import SplashScreen from './src/Screens/SplashScreen';
-import VerifyEmail from './src/Screens/AuthStack/VerifyEmail/VerifyEmail';
+import SplashScreen from './src/screens/SplashScreen';
+import VerifyEmail from './src/screens/AuthStack/VerifyEmail/VerifyEmail';
 // import {getRegistrationData} from './src/screen/Home/useData';
 
 const App = () => {

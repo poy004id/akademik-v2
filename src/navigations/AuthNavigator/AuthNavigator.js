@@ -3,12 +3,12 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import StackHeader from '../components/StackHeader';
 
 
-import SignIn from '../../Screens/AuthStack/SignIn';
-import SignUp from '../../Screens/AuthStack/SignUp';
-import VerifyEmail from '../../Screens/AuthStack/VerifyEmail';
-import ResetPassword from '../../Screens/AuthStack/ResetPassword';
-import ForgotPassword from '../../Screens/AuthStack/ForgotPassword';
-import Test from '../../Screens/AuthStack/Test';
+import SignIn from '../../screens/AuthStack/SignIn';
+import SignUp from '../../screens/AuthStack/SignUp';
+import VerifyEmail from '../../screens/AuthStack/VerifyEmail';
+import ResetPassword from '../../screens/AuthStack/ResetPassword';
+import ForgotPassword from '../../screens/AuthStack/ForgotPassword';
+import Test from '../../screens/AuthStack/Test';
 
 function AuthNavigator() {
 const Stack = createNativeStackNavigator();
