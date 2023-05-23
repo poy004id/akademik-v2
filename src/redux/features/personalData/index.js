@@ -5,7 +5,7 @@ export const personalDataSlice = createSlice({
   initialState: {
     personNm: "",
     personExtId: "",
-    gender: "",
+    gender: "l",
     dob: "",
     phoneNumber: "",
     address: "",
@@ -20,6 +20,8 @@ export const personalDataSlice = createSlice({
       state.personExtId = action.payload;
     },
     setGender: (state, action) => {
+      console.log('action', action)
+      
       state.gender = action.payload;
     },
     setDob: (state, action) => {

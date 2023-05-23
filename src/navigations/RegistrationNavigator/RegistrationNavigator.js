@@ -4,6 +4,7 @@ import StackHeader from '../components/StackHeader';
 import Welcome from '../../screens/RegistrationStack/Welcome';
 import Registration, {RegistrationScreenOptions} from '../../screens/RegistrationStack/Registration';
 import PersonalData from '../../screens/RegistrationStack/PersonalData';
+import Test from '../../screens/HomeStack/Test';
 import {Text} from 'react-native';
 
 
@@ -34,6 +35,8 @@ console.log('AuthNavigator')
           options={
             RegistrationScreenOptions}
         />
+        <Stack.Screen name="Test" component={Test}
+          ></Stack.Screen>
 
 
     </Stack.Navigator>
